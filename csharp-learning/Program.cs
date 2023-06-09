@@ -6,29 +6,22 @@ namespace Program
 	{
 		static void Main(string[] args)
 		{
-			int age = 6;
-			bool canDrive = age >= 16 ? true : false;
-			Console.WriteLine(canDrive);
-
-			switch(age){
-				case 1:
-				case 2:
-					Console.WriteLine("Go to day care..");
-					break;
-				case 3:
-				case 4:
-					Console.WriteLine("Go to preschool");
-					break;
-				default:
-					Console.WriteLine("Life school");
-					break;
-			}
-
-			string name2 = "Cosmin";
-			string name3 = "Cosmin";
-			if (name2.Equals(name3, StringComparison.Ordinal))
+			int i = 1;
+			while(i <= 10)
 			{
-				Console.WriteLine("Names are equal");
+				if(i % 2 == 0)
+				{
+					i++;
+					continue;
+				}
+
+				if(i == 9)
+				{
+					break;
+				}
+
+				Console.WriteLine(i);
+				i++;
 			}
 		}
 	}
