@@ -4,25 +4,40 @@ namespace Program
 {
 	public class Program
 	{
+		static double DoDivision(double x, double y)
+		{
+			if (y == 0)
+			{
+				throw new DivideByZeroException();
+			}
+			return x / y;
+		}
 		static void Main(string[] args)
 		{
-			int i = 1;
-			while(i <= 10)
+			double num1 = 5;
+			double num2 = 0;
+
+			try
 			{
-				if(i % 2 == 0)
-				{
-					i++;
-					continue;
-				}
-
-				if(i == 9)
-				{
-					break;
-				}
-
-				Console.WriteLine(i);
-				i++;
+				Console.WriteLine($"5/0={DoDivision(num1, num2)}");
 			}
+			catch(DivideByZeroException ex)
+			{
+				Console.WriteLine("You can't divide by zero");
+				Console.WriteLine(ex.GetType().Name);
+				Console.WriteLine(ex.Message);
+			}
+			catch (Exception ex) {
+				Console.WriteLine("An error occurred!");
+				Console.WriteLine(ex.GetType().Name);
+				Console.WriteLine(ex.Message);
+			}
+
+			finally
+			{
+				Console.WriteLine("Cleaning up");
+			}
+
 		}
 	}
 }
