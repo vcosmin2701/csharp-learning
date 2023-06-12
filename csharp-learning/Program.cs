@@ -1,42 +1,27 @@
-﻿using System.Security.Cryptography;
+﻿using System.Globalization;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Program
 {
 	public class Program
 	{
-		static double DoDivision(double x, double y)
+
+		public static void Swap(ref int num3, ref int num4)
 		{
-			if (y == 0)
-			{
-				throw new DivideByZeroException();
-			}
-			return x / y;
+			int temp = num3;
+			num3 = num4;
+			num4 = temp;
 		}
+
 		static void Main(string[] args)
 		{
-			double num1 = 5;
-			double num2 = 0;
+			int num3 = 10;
+			int num4 = 20;
+			Console.WriteLine($"Before Swap num3 {num3} , num4 {num4}");
+			Swap(ref num3, ref num4);
+			Console.WriteLine($"After Swap num3 {num3} , num4 {num4}");
 
-			try
-			{
-				Console.WriteLine($"5/0={DoDivision(num1, num2)}");
-			}
-			catch(DivideByZeroException ex)
-			{
-				Console.WriteLine("You can't divide by zero");
-				Console.WriteLine(ex.GetType().Name);
-				Console.WriteLine(ex.Message);
-			}
-			catch (Exception ex) {
-				Console.WriteLine("An error occurred!");
-				Console.WriteLine(ex.GetType().Name);
-				Console.WriteLine(ex.Message);
-			}
-
-			finally
-			{
-				Console.WriteLine("Cleaning up");
-			}
 
 		}
 	}
