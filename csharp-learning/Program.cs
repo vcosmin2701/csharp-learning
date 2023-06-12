@@ -6,21 +6,23 @@ namespace Program
 {
 	public class Program
 	{
+		static void PaintCar(CarColor cc)
+		{
+			Console.WriteLine($"The car was painted {cc} with the code {(int)cc}");
+		}
+		enum CarColor: byte
+		{
+			Orange = 1, 
+			Blue, 
+			Green,
+			Red,
+			Yellow
+		}
+
 		static void Main(string[] args)
 		{
-			DateTime acDate = new DateTime(2022, 4, 17);
-			Console.WriteLine($"Day of the week: {acDate.DayOfWeek}");
-
-			acDate = acDate.AddDays(1);
-			acDate = acDate.AddMonths(1);
-			acDate = acDate.AddYears(1);
-
-			Console.WriteLine($"New date: {acDate.Date}");
-
-			TimeSpan lunchTime = new TimeSpan(12, 30, 0);
-			lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
-
-			Console.WriteLine($"New time: {lunchTime}");
+			CarColor car1 = CarColor.Blue;
+			PaintCar(car1);
 
 		}
 	}
