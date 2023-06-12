@@ -9,11 +9,25 @@ namespace csharp_learning
 	class Animal
 	{
 		private string name;
-		private string sound;
-		public static int numberOfAnimals = 0;
+		protected string sound;
 
-		public const string SHELTER = "Cosmo's farm";
-		public readonly int idNum;
+		protected AnimalIDInfo animalIDInfo = new AnimalIDInfo();
+
+		public void SetAnimalIDInfo(int idNum, string owner)
+		{
+			animalIDInfo.IDNum = idNum;
+			animalIDInfo.Owner = owner;
+		}
+
+		public void GetAnimalIDInfo()
+		{
+			Console.WriteLine($"{Name} has the ID of {animalIDInfo.IDNum} and is owned by {animalIDInfo.Owner}");
+		}
+
+		public virtual void MakeSound()
+		{
+			Console.WriteLine($"{Name} says {Sound}");
+		}
 
 		public Animal():this("No name", "No Sound") {  }
 
@@ -21,39 +35,24 @@ namespace csharp_learning
 
 		public Animal(string name, string sound)
 		{
-			SetName(name);
+			Name = name;
 			Sound = sound;
-			NumOfAnimals = 1;
-			Random rand = new Random();
-			idNum = rand.Next(1, 214748640);
 		}
 
-		public void MakeSound()
+		public string Name
 		{
-			Console.WriteLine($"{name} says {sound}");
-		}
-
-		public static int GetNumAnimals()
-		{
-			return numberOfAnimals;
-		}
-
-		public void SetName(string name)
-		{
-			if (!name.Any(char.IsDigit))
+			get { return name; }
+			set
 			{
-				this.name = name;
+				if (value.Any(char.IsDigit))
+				{
+					name = "No Name";
+				}
+				else
+				{
+					name = value;
+				}
 			}
-			else
-			{
-				this.name = "No name";
-				Console.WriteLine("Invalid input name(can't contain digits");
-			}
-		}
-
-		public string GetName()
-		{
-			return name;
 		}
 
 		public string Sound
@@ -61,7 +60,7 @@ namespace csharp_learning
 			get { return sound; }
 			set
 			{
-				if(value.Length > 10)
+				if(value.Length > 30)
 				{
 					sound = "No sound";
 					Console.WriteLine("Sound is too long");
@@ -73,13 +72,16 @@ namespace csharp_learning
 			}
 		}
 
-		public string Owner { get; set; } = "No Owner";
-
-		public static int NumOfAnimals
+		public class AnimalHealth
 		{
-			get { return numberOfAnimals;  } 
-			set { numberOfAnimals += value; }
-
+			public bool HealthyWeight(double height, double weight)
+			{
+				double calc = height / weight;
+				if ((calc >= .18) && (calc <= .27)){
+					return true;
+				} else return false;
+			}
 		}
+
 	}
 }
