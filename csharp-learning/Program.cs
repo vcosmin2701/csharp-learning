@@ -6,22 +6,21 @@ namespace Program
 {
 	public class Program
 	{
-
-		static double GetSum2(double x = 1, double y = 1) {
-			return x + y;
-		}
-
-		static double GetSum2(string x = "1", string y = "1")
-		{
-			double dblX = Convert.ToDouble(x);
-			double dblY = Convert.ToDouble(y);
-			return dblX + dblY;
-		}
-
 		static void Main(string[] args)
 		{
-			Console.WriteLine(GetSum2(5.0, 4.5));
-			Console.WriteLine(GetSum2("5.0", "4.5"));
+			DateTime acDate = new DateTime(2022, 4, 17);
+			Console.WriteLine($"Day of the week: {acDate.DayOfWeek}");
+
+			acDate = acDate.AddDays(1);
+			acDate = acDate.AddMonths(1);
+			acDate = acDate.AddYears(1);
+
+			Console.WriteLine($"New date: {acDate.Date}");
+
+			TimeSpan lunchTime = new TimeSpan(12, 30, 0);
+			lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
+
+			Console.WriteLine($"New time: {lunchTime}");
 
 		}
 	}
