@@ -7,21 +7,21 @@ namespace Program
 	public class Program
 	{
 
-		public static void Swap(ref int num3, ref int num4)
+		static double GetSum2(double x = 1, double y = 1) {
+			return x + y;
+		}
+
+		static double GetSum2(string x = "1", string y = "1")
 		{
-			int temp = num3;
-			num3 = num4;
-			num4 = temp;
+			double dblX = Convert.ToDouble(x);
+			double dblY = Convert.ToDouble(y);
+			return dblX + dblY;
 		}
 
 		static void Main(string[] args)
 		{
-			int num3 = 10;
-			int num4 = 20;
-			Console.WriteLine($"Before Swap num3 {num3} , num4 {num4}");
-			Swap(ref num3, ref num4);
-			Console.WriteLine($"After Swap num3 {num3} , num4 {num4}");
-
+			Console.WriteLine(GetSum2(5.0, 4.5));
+			Console.WriteLine(GetSum2("5.0", "4.5"));
 
 		}
 	}
