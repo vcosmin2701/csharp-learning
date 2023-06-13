@@ -1,9 +1,4 @@
 ﻿using csharp_learning;
-using System.Globalization;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace Program
 {
