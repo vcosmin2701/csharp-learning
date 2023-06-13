@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace grindingCsharp
 {
-	interface IDrivable
+	interface ICommand
 	{
-		int Wheels { get; set; }
-		double Speed { get; set; }
-
-		void Move();
-		void Stop();
+		void Execute();
+		void Undo();
 	}
 }
