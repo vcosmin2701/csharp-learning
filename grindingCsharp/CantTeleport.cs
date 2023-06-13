@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace grindingCsharp
 {
-	class TVRemote
+	class CantTeleport : Teleports
 	{
-		public static IElectronicDevice GetDevice()
+		public string teleport()
 		{
-			return new Television();
+			return "Fails at Teleporting";
 		}
 	}
 }

@@ -4,10 +4,9 @@
 	{
 		static void Main(string[] args)
 		{
-			IElectronicDevice TV = TVRemote.GetDevice();
-			PowerButton powButton = new PowerButton(TV);
-			powButton.Execute();
-			powButton.Undo();
+			Warrior thor = new Warrior("Thor", 100, 26, 10);
+			MagicWarrior loki = new MagicWarrior("Loki", 75, 20, 10, 70);
+			Battle.StartFight(thor, loki);
 		}
 	}
 }

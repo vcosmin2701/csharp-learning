@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace grindingCsharp
 {
-	interface ICommand
+	interface Teleports
 	{
-		void Execute();
-		void Undo();
+		string teleport();
 	}
 }

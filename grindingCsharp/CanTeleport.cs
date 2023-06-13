@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace grindingCsharp
 {
-	interface IElectronicDevice
+	class CanTeleport : Teleports
 	{
-		void On();
-		void Off();
-		void VolumeUp();
-		void VolumeDown();
+		public string teleport()
+		{
+			return "Teleports Away";
+		}
 	}
 }
